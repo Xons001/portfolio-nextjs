@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 import Image from "next/image";
 import React from "react";
@@ -11,7 +10,7 @@ const HeroSection = () => {
         <div className="col-span-7 place-self-center text-center sm:text-left">
           <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-              Hello, I'm
+              Hello, I&apos;m
             </span>
             <br />
             <TypeAnimation
@@ -31,7 +30,7 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg lg:text-xl mb-6">
-            A passionate full-stack developer proficient in JavaScript, I'm
+            A passionate full-stack developer proficient in JavaScript, I&apos;m
             dedicated to creating seamless web experiences. Eager to explore new
             technologies, I constantly strive for growth and innovation in my
             professional journey. Committed to excellence, I seek opportunities
