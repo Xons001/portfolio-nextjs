@@ -6,35 +6,36 @@ import { TypeAnimation } from "react-type-animation";
 
 const HeroSection = () => {
   return (
-    <section>
+    <section className="lg:py-20">
       <div className="grid grid-cols-1 sm:grid-cols-12">
         <div className="col-span-7 place-self-center text-center sm:text-left">
           <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
               Hello, I'm
             </span>
-            <div className="mt-4">
-              <TypeAnimation
-                sequence={[
-                  "Sean",
-                  1000,
-                  "Web Developer",
-                  1000,
-                  "Full Stack Developer",
-                  1000,
-                  "UI/UX Designer",
-                  1000,
-                ]}
-                wrapper="span"
-                speed={50}
-                repeat={Infinity}
-              />
-            </div>
+            <br />
+            <TypeAnimation
+              sequence={[
+                "Sean",
+                1000,
+                "Web Developer",
+                1000,
+                "Full Stack Developer",
+                1000,
+                "UI/UX Designer",
+                1000,
+              ]}
+              wrapper="span"
+              speed={50}
+              repeat={Infinity}
+            />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg lg:text-xl mb-6">
-            Lorem Ipsum es simplemente el texto de relleno de las imprentas y
-            archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar
-            de las industrias desde el año 1500
+            A passionate full-stack developer proficient in JavaScript, I'm
+            dedicated to creating seamless web experiences. Eager to explore new
+            technologies, I constantly strive for growth and innovation in my
+            professional journey. Committed to excellence, I seek opportunities
+            that challenge and elevate my skill set.
           </p>
           <div>
             <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 bg-white hover:bg-slate-200 text-white">
