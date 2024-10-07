@@ -15,7 +15,7 @@ const EmailSection = () => {
       message: e.target.message.value,
     };
     const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
+    const endpoint = "/api/send"; // Llamada a la API que creamos
 
     const options = {
       method: "POST",
@@ -27,9 +27,11 @@ const EmailSection = () => {
 
     const response = await fetch(endpoint, options);
     const resData = await response.json();
-    if (resData.status === 200) {
-      console.log("Message sent");
+    if (resData.success) {
+      console.log("Message sent successfully");
       setEmailSubmitted(true);
+    } else {
+      console.log("Failed to send message", resData.error);
     }
   };
 
@@ -53,7 +55,7 @@ const EmailSection = () => {
           <Link href="https://github.com/Xons001">
             <Image src={GithubIcon} alt="Github Icon" />
           </Link>
-          <Link href="https://www.linkedin.com/in/seansaezfuller/">
+          <Link href="https://www.linkedin.com/in/sean-saez-fuller/">
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
           </Link>
         </div>

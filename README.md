@@ -1,5 +1,23 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Sending Emails with Nodemailer
+
+This project uses [Nodemailer](https://nodemailer.com/about/) to handle email functionality. Follow these steps to set up the email service:
+
+### Step 1: Create a Gmail App Password
+- Log into your Google Account and go to your security settings.
+- Under the "Signing in to Google" section, enable "2-Step Verification."
+- After enabling 2-Step Verification, go to "App Passwords."
+- Select "Other (Custom name)" and name it something like `Portfolio Email Service`.
+- Generate the password and keep it somewhere safe. This will be your `EMAIL_PASS`.
+
+### Step 2: Add Environment Variables
+Create a `.env.local` file in the root of your project with the following content:
+
+```bash
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASS=your_generated_app_password
+
 ## Getting Started
 
 First, run the development server:
