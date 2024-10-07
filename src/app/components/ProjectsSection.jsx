@@ -25,6 +25,15 @@ const projectsData = [
     gitUrl: "https://github.com/Xons001/GuideWorld",
     videoCameraUrl: "https://youtu.be/xAjAZZTRL3A",
   },
+  {
+    id: 3,
+    title: "React.js Monsters Rolodex Project",
+    description:
+      "In this project, I developed a dynamic front-end application using React.js. During this project, I completed an advanced online course where I learned the latest features of React, including its routing system, hooks, and component optimizations. This experience deepened my understanding of state management, React Router for client-side routing, and configuring modern React applications.",
+    image: "/images/projects/3.png",
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/Xons001/monsters-rolodex",
+  },
 ];
 
 const ProjectsSection = () => {
