@@ -30,6 +30,7 @@ const EmailSection = () => {
     if (resData.success) {
       console.log("Message sent successfully");
       setEmailSubmitted(true);
+      e.target.reset();
     } else {
       console.log("Failed to send message", resData.error);
     }
