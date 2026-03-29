@@ -1,5 +1,6 @@
 "use client";
-import React, { useTransition, useState } from "react";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
 
@@ -7,126 +8,199 @@ const TAB_DATA = [
   {
     title: "Skills",
     id: "skills",
+    eyebrow: "Core stack",
+    summary:
+      "The technologies I use most comfortably when building interfaces, APIs and cloud-connected products.",
     content: (
-      <div className="flex">
-        <div className="flex-1 pr-4 border-r-2 border-white">
-          <span className="">Frontend</span>
-          <ul className="list-disc pl-5">
-            <li>JavaScript</li>
+      <div className="grid gap-4 md:grid-cols-3">
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <span className="text-sm uppercase tracking-[0.24em] text-cyan-200">
+            Frontend
+          </span>
+          <ul className="mt-4 space-y-2 text-slate-300">
+            <li>JavaScript and TypeScript</li>
             <li>React</li>
-            <li>Angular</li>
-            <li>Typescript</li>
             <li>Next.js</li>
-            <li>HTML & CSS</li>
-            <li>Tailwind CSS</li>
-            <li>Ionic CSS</li>
+            <li>Angular</li>
+            <li>HTML, CSS and Tailwind CSS</li>
+            <li>Ionic</li>
           </ul>
         </div>
-        <div className="flex-1 pl-4 border-r-2 border-white">
-          <span className="">Backend</span>
-          <ul className="list-disc pl-5">
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <span className="text-sm uppercase tracking-[0.24em] text-cyan-200">
+            Backend
+          </span>
+          <ul className="mt-4 space-y-2 text-slate-300">
             <li>Node.js</li>
             <li>Express</li>
-            <li>MySQL</li>
-            <li>ORM (Prisma)</li>
-            <li>REST APIs</li>
+            <li>REST API design</li>
+            <li>Prisma ORM</li>
+            <li>MySQL and relational data modeling</li>
           </ul>
         </div>
-        <div className="flex-1 pl-4">
-          <span className="">Cloud & DevOps</span>
-          <ul className="list-disc pl-5">
-            <li>AWS, Azure, GCP</li>
-            <li>Docker & Kubernetes</li>
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <span className="text-sm uppercase tracking-[0.24em] text-cyan-200">
+            Cloud and delivery
+          </span>
+          <ul className="mt-4 space-y-2 text-slate-300">
+            <li>AWS, Azure and GCP familiarity</li>
+            <li>Docker and Kubernetes</li>
             <li>Terraform</li>
+            <li>Agile delivery mindset</li>
+            <li>Automation and continuous improvement</li>
           </ul>
         </div>
       </div>
     ),
   },
   {
-    title: "Education",
-    id: "education",
+    title: "Background",
+    id: "background",
+    eyebrow: "Path so far",
+    summary:
+      "A quick view of the training and hands-on experience that shaped the way I work today.",
     content: (
-      <ul className="list-disc pl-2">
-        <li>Superior Degree: Cross-platform application development</li>
-        <li>Bootcamp: .Net Web Platform</li>
-      </ul>
+      <div className="space-y-4">
+        <div className="rounded-2xl border border-cyan-400/20 bg-cyan-400/10 p-5">
+          <p className="text-xs uppercase tracking-[0.22em] text-cyan-200">
+            Education
+          </p>
+          <h3 className="mt-2 text-lg font-semibold text-white">
+            Cross-platform application development
+          </h3>
+          <p className="mt-2 text-slate-300">
+            Higher vocational degree focused on software development across
+            multiple platforms and practical project work.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-xs uppercase tracking-[0.22em] text-cyan-200">
+            Specialisation
+          </p>
+          <h3 className="mt-2 text-lg font-semibold text-white">
+            .NET web platform bootcamp
+          </h3>
+          <p className="mt-2 text-slate-300">
+            Additional training that helped broaden my backend perspective
+            beyond the JavaScript ecosystem.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-xs uppercase tracking-[0.22em] text-cyan-200">
+            Experience
+          </p>
+          <h3 className="mt-2 text-lg font-semibold text-white">
+            Personal, academic and professional-style projects
+          </h3>
+          <p className="mt-2 text-slate-300">
+            Hands-on work across frontend, backend and cloud-oriented tasks,
+            always with a strong focus on maintainability and delivery.
+          </p>
+        </div>
+      </div>
     ),
   },
   {
     title: "Certifications",
     id: "certifications",
+    eyebrow: "Validated learning",
+    summary:
+      "Formal certifications that support the practical experience shown in the rest of the portfolio.",
     content: (
-      <ul className="list-disc pl-2">
-        <li>Google Professional Cloud Developer</li>
-        <li>JavaScript and .Net Practitioner</li>
-        <li>Cloud Fundamentals with AWS</li>
-      </ul>
+      <div className="grid gap-4 md:grid-cols-3">
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-xs uppercase tracking-[0.22em] text-cyan-200">
+            Google Cloud
+          </p>
+          <h3 className="mt-2 text-lg font-semibold text-white">
+            Professional Cloud Developer
+          </h3>
+        </div>
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-xs uppercase tracking-[0.22em] text-cyan-200">
+            Development
+          </p>
+          <h3 className="mt-2 text-lg font-semibold text-white">
+            JavaScript and .NET Practitioner
+          </h3>
+        </div>
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-xs uppercase tracking-[0.22em] text-cyan-200">
+            AWS
+          </p>
+          <h3 className="mt-2 text-lg font-semibold text-white">
+            Cloud Fundamentals
+          </h3>
+        </div>
+      </div>
     ),
   },
 ];
 
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
-  const [isPending, startTransition] = useTransition();
-
-  const handleTabChange = (id) => {
-    startTransition(() => {
-      setTab(id);
-    });
-  };
+  const activeTab = TAB_DATA.find((item) => item.id === tab) ?? TAB_DATA[0];
 
   return (
-    <section className="text-white pt-20 -mt-20" id="about">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image
-          alt="about"
-          src="/images/about-image.jpg"
-          width={600}
-          height={600}
-        />
-        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-          <p className="text-base lg:text-lg">
-            I am a Full Stack Developer specialized in modern web technologies.
-            On the front-end, I have extensive experience with React.js,
-            Angular, TypeScript, HTML, CSS, Tailwind and Ionic. I am proficient
-            in building interactive user interfaces and seamless user
-            experiences. On the back-end, my expertise includes Node.js,
-            Express, Prisma ORM, and MySQL, focusing on REST API design and
-            robust database management. I have worked on several projects, such
-            as secure file transfer platforms and internal tools to optimize
-            business processes. Eager to continuously grow and embrace new
-            challenges, I am also familiar with DevOps practices and cloud
-            solutions like AWS, Azure, and GCP. I enjoy working in Agile
-            environments, where collaboration and innovation thrive.
+    <section className="pt-24" id="about">
+      <div className="section-shell grid items-start gap-10 px-6 py-10 md:grid-cols-[0.86fr_1.14fr] md:px-10 md:py-12 xl:grid-cols-[0.8fr_1.2fr]">
+        <div className="md:sticky md:top-28">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/60 shadow-xl shadow-slate-950/20">
+            <Image
+              alt="Workspace and development setup"
+              src="/images/about-image.jpg"
+              fill
+              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 42vw, 36vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
+        <div className="flex flex-col">
+          <p className="text-sm uppercase tracking-[0.28em] text-cyan-200">
+            About
+          </p>
+          <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
+            Product-minded developer with a strong JavaScript core
+          </h2>
+          <p className="mt-5 text-base leading-8 text-slate-300 lg:text-lg">
+            I enjoy building interfaces that feel clear and dependable, and I
+            like pairing that frontend focus with solid backend thinking. My
+            experience spans React, Angular, Next.js, Node.js and cloud tooling,
+            with a particular interest in turning messy requirements into clean,
+            maintainable products.
           </p>
 
-          <div className="flex flex-row justify-start mt-8">
+          <div className="mt-8 flex flex-wrap gap-4">
             <TabButton
-              selectTab={() => handleTabChange("skills")}
+              selectTab={() => setTab("skills")}
               active={tab === "skills"}
             >
-              {" "}
-              Skills{" "}
+              Skills
             </TabButton>
             <TabButton
-              selectTab={() => handleTabChange("education")}
-              active={tab === "education"}
+              selectTab={() => setTab("background")}
+              active={tab === "background"}
             >
-              {" "}
-              Education{" "}
+              Background
             </TabButton>
             <TabButton
-              selectTab={() => handleTabChange("certifications")}
+              selectTab={() => setTab("certifications")}
               active={tab === "certifications"}
             >
-              {" "}
-              Certifications{" "}
+              Certifications
             </TabButton>
           </div>
-          <div className="mt-8">
-            {TAB_DATA.find((t) => t.id === tab).content}
+          <div className="mt-8 min-h-[32rem] rounded-[1.75rem] border border-white/10 bg-slate-950/45 p-6">
+            <p className="text-xs uppercase tracking-[0.24em] text-cyan-200">
+              {activeTab.eyebrow}
+            </p>
+            <h3 className="mt-3 text-2xl font-semibold text-white">
+              {activeTab.title}
+            </h3>
+            <p className="mt-3 max-w-2xl text-slate-300">
+              {activeTab.summary}
+            </p>
+            <div className="mt-6">{activeTab.content}</div>
           </div>
         </div>
       </div>

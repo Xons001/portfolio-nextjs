@@ -1,102 +1,116 @@
 "use client";
-import React, { useState, useRef } from "react";
+
+import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
-import { motion, useInView } from "framer-motion";
 
 const projectsData = [
   {
     id: 1,
-    title: "Java Android Studio",
+    title: "FutLab",
     description:
-      "This was my final project in my superior Degree. In this project I used to develop the front-end XML and the backend I used Java with PostgreSQL, to deploy it I used Heroku",
+      "Final degree project for Android focused on structuring a mobile experience around football data, training information and practical app flows.",
     image: "/images/projects/1.png",
     tag: ["All", "Mobile"],
+    stack: ["Java", "Android Studio", "XML", "PostgreSQL"],
+    highlights: [
+      "Mobile UI built with native Android layouts",
+      "Backend and data persistence work using Java and PostgreSQL",
+      "Includes a recorded walkthrough for quick review",
+    ],
     gitUrl: "https://github.com/Xons001/FutLabBaseDeDatos/wiki",
     videoCameraUrl: "https://youtu.be/lLxp1wpQjjY",
   },
   {
     id: 2,
-    title: "ASP.Net C#",
+    title: "GuideWorld",
     description:
-      "In this project I used to develop the front-end XML and the backend I used Java with PostgreSQL, to deploy it I used Heroku",
+      "Learning project in ASP.NET and C# centered on structuring a content-driven web app and getting comfortable with backend-first development patterns.",
     image: "/images/projects/2.png",
     tag: ["All", "Web"],
+    stack: ["ASP.NET", "C#", "Web"],
+    highlights: [
+      "Good example of working outside the JavaScript ecosystem",
+      "Focus on routing, page structure and CRUD-style flows",
+      "Useful project for showing backend adaptability",
+    ],
     gitUrl: "https://github.com/Xons001/GuideWorld",
     videoCameraUrl: "https://youtu.be/xAjAZZTRL3A",
   },
   {
     id: 3,
-    title: "React.js Monsters Rolodex Project",
+    title: "Monsters Rolodex",
     description:
-      "In this project, I developed a dynamic front-end application using React.js. During this project, I completed an advanced online course where I learned the latest features of React, including its routing system, hooks, and component optimizations. This experience deepened my understanding of state management, React Router for client-side routing, and configuring modern React applications.",
+      "Frontend project built during advanced React training, focused on component composition, state handling and the fundamentals of a polished client-side experience.",
     image: "/images/projects/3.png",
     tag: ["All", "Web"],
+    stack: ["React", "JavaScript", "CSS"],
+    highlights: [
+      "Component-driven UI with reusable patterns",
+      "Hands-on practice with state management and filtering logic",
+      "Clear example of frontend fundamentals executed cleanly",
+    ],
     gitUrl: "https://github.com/Xons001/monsters-rolodex",
   },
 ];
 
 const ProjectsSection = () => {
   const [tag, setTag] = useState("All");
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  const handleTagChange = (newTag) => {
-    setTag(newTag);
-  };
 
   const filteredProjects = projectsData.filter((project) =>
     project.tag.includes(tag)
   );
 
-  const cardVariants = {
-    initial: { y: 50, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-  };
-
   return (
-    <section className="pt-40 -mt-40" id="projects">
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-        My Projects
-      </h2>
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-        <ProjectTag
-          onClick={handleTagChange}
-          name="All"
-          isSelected={tag === "All"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Web"
-          isSelected={tag === "Web"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
-        />
+    <section className="pt-24" id="projects">
+      <div className="section-shell px-6 py-10 md:px-10 md:py-12">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm uppercase tracking-[0.28em] text-cyan-200">
+            Selected work
+          </p>
+          <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
+            Projects that show how I think and build
+          </h2>
+          <p className="mt-4 text-base leading-8 text-slate-300">
+            This selection mixes mobile, web and frontend-heavy work. If I add
+            one more project next, I would prioritise something newer and closer
+            to the kind of production role I want now.
+          </p>
+        </div>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <ProjectTag
+            onClick={setTag}
+            name="All"
+            isSelected={tag === "All"}
+          />
+          <ProjectTag
+            onClick={setTag}
+            name="Web"
+            isSelected={tag === "Web"}
+          />
+          <ProjectTag
+            onClick={setTag}
+            name="Mobile"
+            isSelected={tag === "Mobile"}
+          />
+        </div>
+        <ul className="mt-10 grid gap-8 lg:grid-cols-3">
+          {filteredProjects.map((project) => (
+            <li key={project.id}>
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                imgUrl={project.image}
+                gitUrl={project.gitUrl}
+                previewUrl={project.previewUrl}
+                videoCameraUrl={project.videoCameraUrl}
+                stack={project.stack}
+                highlights={project.highlights}
+              />
+            </li>
+          ))}
+        </ul>
       </div>
-      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
-        {filteredProjects.map((project, index) => (
-          <motion.li
-            key={index}
-            variants={cardVariants}
-            initial="initial"
-            animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.4 }}
-          >
-            <ProjectCard
-              key={project.id}
-              title={project.title}
-              description={project.description}
-              imgUrl={project.image}
-              gitUrl={project.gitUrl}
-              previewUrl={project.previewUrl}
-              videoCameraUrl={project.videoCameraUrl}
-            />
-          </motion.li>
-        ))}
-      </ul>
     </section>
   );
 };

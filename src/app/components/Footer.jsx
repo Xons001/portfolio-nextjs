@@ -1,23 +1,18 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="footer border z-10 border-t-[#33353F] border-l-transparent border-r-transparent text-white">
-      <div className="container p-12 flex justify-between">
-        <Link
-          href={"/"}
-          className="text-2xl md:text-5xl text-white font-semibold"
-        >
-          <Image
-            alt="logo"
-            src="/images/default.png"
-            width={70}
-            height={70}
-            className="bg-transparent rounded-full"
-          />
+    <footer className="mt-12 border-t border-white/10 py-8 text-white">
+      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <Link href="/" className="text-sm font-semibold uppercase tracking-[0.24em]">
+          Seán Sáez Fuller
         </Link>
-        <p className="text-slate-600">All rights reserved.</p>
+        <p className="text-sm text-slate-400">
+          Built with Next.js and designed to show selected work clearly.
+        </p>
+        <p className="text-sm text-slate-500">
+          {new Date().getFullYear()} All rights reserved.
+        </p>
       </div>
     </footer>
   );

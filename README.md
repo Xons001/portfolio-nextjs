@@ -1,55 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio Next.js
 
-## Sending Emails with Nodemailer
+Personal portfolio built with Next.js App Router and Tailwind CSS.
 
-This project uses [Nodemailer](https://nodemailer.com/about/) to handle email functionality. Follow these steps to set up the email service:
+## Run locally
 
-### Step 1: Create a Gmail App Password
-- Log into your Google Account and go to your security settings.
-- Under the "Signing in to Google" section, enable "2-Step Verification."
-- After enabling 2-Step Verification, go to "App Passwords."
-- Select "Other (Custom name)" and name it something like `Portfolio Email Service`.
-- Generate the password and keep it somewhere safe. This will be your `EMAIL_PASS`.
+```bash
+npm install
+npm run dev
+```
 
-### Step 2: Add Environment Variables
-Create a `.env.local` file in the root of your project with the following content:
+Open `http://localhost:3000`.
+
+## Contact form
+
+The contact form supports two delivery modes:
+
+1. Recommended for Vercel: Resend
+2. Optional local fallback: Gmail with Nodemailer
+
+Copy `.env.example` to `.env.local` and configure the variables you want to use.
+
+### Recommended production setup with Resend
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+CONTACT_TO_EMAIL=you@example.com
+CONTACT_FROM_EMAIL=Portfolio Contact <onboarding@resend.dev>
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
+```
+
+Notes:
+
+- `CONTACT_TO_EMAIL` is where recruiter messages will arrive.
+- `CONTACT_FROM_EMAIL` can stay as `onboarding@resend.dev` while testing.
+- For a real production sender address, verify your own domain in Resend and then replace `CONTACT_FROM_EMAIL`.
+
+### Optional Gmail fallback
+
+If you want the form to work locally without Resend, you can still use:
 
 ```bash
 EMAIL_USER=your_email@gmail.com
 EMAIL_PASS=your_generated_app_password
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The API route will use Resend first if `RESEND_API_KEY` exists. Otherwise it falls back to Gmail/Nodemailer.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Import the repository into Vercel or link the local repo to the existing project.
+2. Add the production environment variables from `.env.example`.
+3. Trigger a new deployment.
+4. Test the contact form on the deployed URL.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# portfolio-nextjs
+## Tech
+
+- Next.js
+- React
+- Tailwind CSS
+- Framer Motion
+- Resend
+- Nodemailer fallback

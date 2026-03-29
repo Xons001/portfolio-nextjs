@@ -1,10 +1,11 @@
 const ProjectTag = ({ name, onClick, isSelected }) => {
   const buttonStyles = isSelected
-    ? "text-white border-primary-500"
-    : "text-[#ADB7BE] border-slate-600 hover:border-white";
+    ? "border-cyan-400 bg-cyan-400/10 text-white"
+    : "border-slate-700 text-slate-300 hover:border-cyan-300 hover:text-white";
   return (
     <button
-      className={`${buttonStyles} rounded-full border-2 px-6 py-3 text-xl cursor-pointer`}
+      type="button"
+      className={`${buttonStyles} cursor-pointer rounded-full border px-5 py-2 text-sm font-medium uppercase tracking-[0.24em] transition md:text-base`}
       onClick={() => onClick(name)}
     >
       {name}
