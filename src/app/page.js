@@ -7,16 +7,16 @@ import ProjectsSection from "./components/ProjectsSection";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-[#121212] ">
-      <div className="container mx-auto px-14 py-4">
+    <main className="min-h-screen overflow-x-clip">
+      <div className="mx-auto w-full max-w-[1480px] px-6 pb-8 pt-4 md:px-8 xl:px-10">
         <Navbar />
-        <div className="container mt-24 mx-auto px-12 py-4">
+        <div className="pt-24 md:pt-28">
           <HeroSection />
           <AboutSection />
           <ProjectsSection />
           <EmailSection />
-        <Footer/>
         </div>
+        <Footer />
       </div>
     </main>
   );
