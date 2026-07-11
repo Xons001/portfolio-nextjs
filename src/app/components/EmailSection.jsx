@@ -5,10 +5,12 @@ import Link from "next/link";
 import { useState } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
+import { useLanguage } from "./LanguageProvider";
 
 const EmailSection = () => {
   const [status, setStatus] = useState("idle");
   const [feedbackMessage, setFeedbackMessage] = useState("");
+  const { t } = useLanguage();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,20 +34,17 @@ const EmailSection = () => {
       if (!response.ok || !resData.success) {
         throw new Error(
           resData.error ||
-            "I could not send the message right now. Please try again later."
+            t.contact.error
         );
       }
 
       setStatus("success");
-      setFeedbackMessage(
-        "Message sent successfully. Thanks for reaching out."
-      );
+      setFeedbackMessage(t.contact.success);
       e.currentTarget.reset();
     } catch (error) {
       setStatus("error");
       setFeedbackMessage(
-        error.message ||
-          "I could not send the message right now. Please try again later."
+        error.message || t.contact.error
       );
     }
   };
@@ -57,15 +56,13 @@ const EmailSection = () => {
         <div className="grid gap-10 md:grid-cols-[0.85fr_1.15fr]">
           <div className="relative z-10">
             <p className="text-sm uppercase tracking-[0.28em] text-cyan-200">
-              Contact
+              {t.contact.eyebrow}
             </p>
             <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-              Let&apos;s build something useful
+              {t.contact.title}
             </h2>
             <p className="mt-5 max-w-md text-base leading-8 text-slate-300">
-              If you are hiring, want to collaborate, or just want to talk about
-              frontend, product and JavaScript, send me a message and I&apos;ll
-              get back to you as soon as I can.
+              {t.contact.intro}
             </p>
             <div className="mt-8 flex gap-3">
               <Link href="https://github.com/Xons001" target="_blank" rel="noreferrer">
@@ -95,7 +92,7 @@ const EmailSection = () => {
                     htmlFor="name"
                     className="mb-2 block text-sm font-medium text-white"
                   >
-                    Your name
+                    {t.contact.labels.name}
                   </label>
                   <input
                     type="text"
@@ -104,7 +101,7 @@ const EmailSection = () => {
                     required
                     autoComplete="name"
                     className="block w-full rounded-2xl border border-white/10 bg-slate-900/80 p-3 text-sm text-slate-100 outline-none transition focus:border-cyan-300"
-                    placeholder="Jane Doe"
+                    placeholder={t.contact.placeholders.name}
                   />
                 </div>
                 <div>
@@ -112,7 +109,7 @@ const EmailSection = () => {
                     htmlFor="email"
                     className="mb-2 block text-sm font-medium text-white"
                   >
-                    Email
+                    {t.contact.labels.email}
                   </label>
                   <input
                     type="email"
@@ -121,7 +118,7 @@ const EmailSection = () => {
                     required
                     autoComplete="email"
                     className="block w-full rounded-2xl border border-white/10 bg-slate-900/80 p-3 text-sm text-slate-100 outline-none transition focus:border-cyan-300"
-                    placeholder="jane@example.com"
+                    placeholder={t.contact.placeholders.email}
                   />
                 </div>
               </div>
@@ -130,7 +127,7 @@ const EmailSection = () => {
                   htmlFor="company"
                   className="mb-2 block text-sm font-medium text-white"
                 >
-                  Company or team
+                  {t.contact.labels.company}
                 </label>
                 <input
                   type="text"
@@ -138,7 +135,7 @@ const EmailSection = () => {
                   name="company"
                   autoComplete="organization"
                   className="block w-full rounded-2xl border border-white/10 bg-slate-900/80 p-3 text-sm text-slate-100 outline-none transition focus:border-cyan-300"
-                  placeholder="Optional"
+                  placeholder={t.contact.placeholders.company}
                 />
               </div>
               <div>
@@ -146,7 +143,7 @@ const EmailSection = () => {
                   htmlFor="subject"
                   className="mb-2 block text-sm font-medium text-white"
                 >
-                  Subject
+                  {t.contact.labels.subject}
                 </label>
                 <input
                   type="text"
@@ -154,7 +151,7 @@ const EmailSection = () => {
                   name="subject"
                   required
                   className="block w-full rounded-2xl border border-white/10 bg-slate-900/80 p-3 text-sm text-slate-100 outline-none transition focus:border-cyan-300"
-                  placeholder="Opportunity, freelance project, quick intro..."
+                  placeholder={t.contact.placeholders.subject}
                 />
               </div>
               <div>
@@ -162,7 +159,7 @@ const EmailSection = () => {
                   htmlFor="message"
                   className="mb-2 block text-sm font-medium text-white"
                 >
-                  Message
+                  {t.contact.labels.message}
                 </label>
                 <textarea
                   name="message"
@@ -170,7 +167,7 @@ const EmailSection = () => {
                   required
                   rows="6"
                   className="block w-full rounded-2xl border border-white/10 bg-slate-900/80 p-3 text-sm text-slate-100 outline-none transition focus:border-cyan-300"
-                  placeholder="Tell me a bit about the role, project or idea."
+                  placeholder={t.contact.placeholders.message}
                 />
               </div>
               <button
@@ -178,7 +175,7 @@ const EmailSection = () => {
                 disabled={status === "loading"}
                 className="inline-flex w-full items-center justify-center rounded-2xl bg-cyan-400 px-5 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-70"
               >
-                {status === "loading" ? "Sending..." : "Send message"}
+                {status === "loading" ? t.contact.sending : t.contact.send}
               </button>
               <p
                 className={`min-h-[1.5rem] text-sm ${

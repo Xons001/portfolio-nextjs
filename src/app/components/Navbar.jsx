@@ -5,24 +5,25 @@ import React, { useState } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
-
-const navLinks = [
-  {
-    title: "About",
-    path: "#about",
-  },
-  {
-    title: "Projects",
-    path: "#projects",
-  },
-  {
-    title: "Contact",
-    path: "#contact",
-  },
-];
+import { useLanguage } from "./LanguageProvider";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
+  const navLinks = [
+    {
+      title: t.nav.about,
+      path: "#about",
+    },
+    {
+      title: t.nav.projects,
+      path: "#projects",
+    },
+    {
+      title: t.nav.contact,
+      path: "#contact",
+    },
+  ];
 
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur">
@@ -32,13 +33,29 @@ const Navbar = () => {
           className="flex flex-col text-white transition hover:text-cyan-200"
         >
           <span className="text-sm font-semibold uppercase tracking-[0.28em]">
-            Sean Saez Fuller
+            Seán Sáez Fuller
           </span>
           <span className="text-xs text-slate-400">
-            Full-stack JavaScript developer
+            {t.nav.subtitle}
           </span>
         </Link>
-        <div className="mobile-menu block md:hidden">
+        <div className="flex items-center gap-3 md:hidden">
+          <div className="flex rounded-full border border-white/10 bg-white/5 p-1">
+            {["en", "es"].map((item) => (
+              <button
+                key={item}
+                type="button"
+                onClick={() => setLanguage(item)}
+                className={`rounded-full px-3 py-1 text-xs font-semibold uppercase transition ${
+                  language === item
+                    ? "bg-cyan-400 text-slate-950"
+                    : "text-slate-300 hover:text-white"
+                }`}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
           {!navbarOpen ? (
             <button
               type="button"
@@ -59,7 +76,10 @@ const Navbar = () => {
             </button>
           )}
         </div>
-        <div className="menu hidden md:block md:w-auto" id="navbar">
+        <div
+          className="menu hidden items-center gap-6 md:flex md:w-auto"
+          id="navbar"
+        >
           <ul className="mt-0 flex md:flex-row md:space-x-8">
             {navLinks.map((link, index) => (
               <li key={index}>
@@ -67,6 +87,22 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
+          <div className="flex rounded-full border border-white/10 bg-white/5 p-1">
+            {["en", "es"].map((item) => (
+              <button
+                key={item}
+                type="button"
+                onClick={() => setLanguage(item)}
+                className={`rounded-full px-3 py-1 text-xs font-semibold uppercase transition ${
+                  language === item
+                    ? "bg-cyan-400 text-slate-950"
+                    : "text-slate-300 hover:text-white"
+                }`}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
       {navbarOpen ? <MenuOverlay links={navLinks} /> : null}

@@ -17,14 +17,15 @@ export const metadata = {
     template: "%s | Seán Sáez Fuller",
   },
   description:
-    "Portfolio of Seán Sáez Fuller, a full-stack JavaScript developer building polished web experiences with React, Next.js, Node.js and cloud tooling.",
+    "Portfolio of Seán Sáez Fuller, a full-stack JavaScript developer building polished web experiences with React, Angular, Next.js, Java/Spring Boot and cloud tooling.",
   keywords: [
     "Seán Sáez Fuller",
     "full-stack developer",
     "JavaScript developer",
     "React developer",
+    "Angular developer",
     "Next.js portfolio",
-    "Node.js developer",
+    "Java Spring Boot developer",
   ],
   openGraph: {
     title: "Seán Sáez Fuller | Full-Stack JavaScript Developer",
@@ -47,7 +48,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Seán Sáez Fuller | Full-Stack JavaScript Developer",
     description:
-      "Portfolio of Seán Sáez Fuller, focused on React, Next.js, Node.js and product-minded frontend work.",
+      "Portfolio of Seán Sáez Fuller, focused on React, Angular, Next.js, Java/Spring Boot and product-minded full-stack work.",
     images: ["/images/logo-sean.png"],
   },
 };

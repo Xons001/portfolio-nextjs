@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CV Sean Saez Fuller</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #344454;
+        background: #dce3eb;
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+
+      .page {
+        display: grid;
+        grid-template-columns: 285px 1fr;
+        width: 794px;
+        min-height: 1123px;
+        margin: 0 auto;
+        background: #f5f7fb;
+      }
+
+      .sidebar {
+        color: #f3f7fa;
+        background: #243947;
+        padding: 34px 22px 24px;
+      }
+
+      .photo {
+        width: 142px;
+        height: 142px;
+        margin: 0 auto 20px;
+        overflow: hidden;
+        border: 5px solid #f5f7fb;
+        border-radius: 50%;
+        background: #fff;
+      }
+
+      .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .side-section {
+        margin-top: 22px;
+      }
+
+      .side-title,
+      .main-title {
+        margin: 0;
+        font-family: Impact, "Arial Narrow", sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+      }
+
+      .side-title {
+        color: #b9c6d1;
+        font-size: 24px;
+      }
+
+      .side-rule {
+        width: 112px;
+        height: 2px;
+        margin: 10px 0 16px;
+        background: #b9c6d1;
+      }
+
+      .contact-item {
+        display: grid;
+        grid-template-columns: 30px 1fr;
+        gap: 12px;
+        align-items: center;
+        margin: 0 0 13px;
+        font-size: 13.5px;
+        line-height: 1.25;
+      }
+
+      .icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        color: #f8fafc;
+        font-size: 19px;
+        font-weight: 700;
+      }
+
+      .contact-item a {
+        color: #f3f7fa;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .skill {
+        display: grid;
+        grid-template-columns: 1fr 116px;
+        gap: 10px;
+        align-items: center;
+        margin: 0 0 9px;
+        font-size: 13px;
+      }
+
+      .dots {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+      }
+
+      .dot {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: #4a6070;
+      }
+
+      .dot.on {
+        background: #d8dde2;
+      }
+
+      .main {
+        padding: 30px 30px 18px 36px;
+      }
+
+      .name {
+        margin: 0;
+        color: #111318;
+        font-family: Impact, "Arial Narrow", sans-serif;
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 0.95;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .birth {
+        display: inline-block;
+        margin-top: 6px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #1594ff;
+        color: #111318;
+        font-family: Impact, "Arial Narrow", sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+
+      .role {
+        margin: 17px 0 6px;
+        color: #405466;
+        font-size: 23px;
+        font-weight: 700;
+      }
+
+      .intro {
+        margin: 0 0 15px;
+        color: #7a8795;
+        font-size: 12.7px;
+        line-height: 1.36;
+      }
+
+      .rule {
+        height: 2px;
+        margin: 8px 0 10px;
+        background: #ccd4df;
+      }
+
+      .main-title {
+        color: #111318;
+        font-size: 29px;
+      }
+
+      .section {
+        margin-top: 7px;
+      }
+
+      .job {
+        margin: 7px 0 8px;
+      }
+
+      .job h3 {
+        margin: 0;
+        color: #3c5061;
+        font-family: Impact, "Arial Narrow", sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.14;
+      }
+
+      .date {
+        margin: 5px 0 4px;
+        color: #8b99a8;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .stack,
+      .desc {
+        margin: 2px 0;
+        color: #8a949f;
+        font-size: 10.8px;
+        font-weight: 750;
+        line-height: 1.18;
+      }
+
+      .label {
+        color: #687684;
+        font-weight: 900;
+      }
+
+      .accent {
+        color: #ffaf20;
+        font-weight: 900;
+      }
+
+      .blue {
+        color: #178df2;
+        font-weight: 900;
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 8px;
+      }
+
+      .project {
+        min-height: 88px;
+        padding: 10px 12px;
+        border: 1px solid #d2dae4;
+        border-left: 5px solid #1594ff;
+        border-radius: 12px;
+        background: #fff;
+      }
+
+      .project h3 {
+        margin: 0 0 5px;
+        color: #34495d;
+        font-family: Impact, "Arial Narrow", sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .project p {
+        margin: 0;
+        color: #7a8795;
+        font-size: 10.4px;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+
+      .education {
+        margin-top: 8px;
+      }
+
+      .education h3 {
+        margin: 0 0 4px;
+        color: #3c5061;
+        font-family: Impact, "Arial Narrow", sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .education p {
+        margin: 0;
+        color: #506070;
+        font-size: 12.5px;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <aside class="sidebar">
+        <div class="photo">
+          <img src="../images/fotoSeanCV.jpg" alt="Sean Saez Fuller" />
+        </div>
+
+        <section class="side-section">
+          <h2 class="side-title">Contacto</h2>
+          <div class="side-rule"></div>
+          <p class="contact-item"><span class="icon">☎</span><span>+34 662 946 989</span></p>
+          <p class="contact-item"><span class="icon">⌖</span><span>Cornellà de Llobregat<br />08940 Barcelona</span></p>
+          <p class="contact-item"><span class="icon">✉</span><span>sean.saez.f@gmail.com</span></p>
+        </section>
+
+        <section class="side-section">
+          <h2 class="side-title">Redes sociales</h2>
+          <div class="side-rule"></div>
+          <p class="contact-item"><span class="icon">↗</span><a href="https://portfolio-nextjs-sean-saez.vercel.app">portfolio-nextjs-sean-saez.vercel.app</a></p>
+          <p class="contact-item"><span class="icon">in</span><a href="https://linkedin.com/in/sean-saez-fuller">linkedin.com/in/sean-saez-fuller</a></p>
+          <p class="contact-item"><span class="icon">{}</span><a href="https://github.com/Xons001">github.com/Xons001</a></p>
+        </section>
+
+        <section class="side-section">
+          <h2 class="side-title">Habilidades</h2>
+          <div class="side-rule"></div>
+          <div class="skill"><span>JavaScript / TypeScript</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+          <div class="skill"><span>React / Next.js</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+          <div class="skill"><span>Angular / Ionic</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+          <div class="skill"><span>Java / Spring Boot</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></div>
+          <div class="skill"><span>Node.js / Express</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+          <div class="skill"><span>SQL / PostgreSQL</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+          <div class="skill"><span>Prisma / APIs</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></div>
+          <div class="skill"><span>Docker / GitHub</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></div>
+        </section>
+
+        <section class="side-section">
+          <h2 class="side-title">Idiomas</h2>
+          <div class="side-rule"></div>
+          <div class="skill"><span>Español</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span></div>
+          <div class="skill"><span>Inglés</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+          <div class="skill"><span>Catalán</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></div>
+        </section>
+      </aside>
+
+      <section class="main">
+        <header>
+          <h1 class="name">Seán Sáez Fuller</h1>
+          <div class="birth">5 de julio de 1994</div>
+          <h2 class="role">Full Stack Software Developer</h2>
+          <p class="intro">
+            Desarrollador full stack con experiencia profesional en Java/Spring Boot, Angular, React, Next.js, Node.js y bases de datos SQL. Construyo productos web con foco en UX, datos, APIs mantenibles y despliegues reales.
+          </p>
+        </header>
+
+        <div class="rule"></div>
+        <section class="section">
+          <h2 class="main-title">Experiencia profesional</h2>
+
+          <article class="job">
+            <h3>Adasa - Full Stack Developer / Java (Prat de Llobregat)</h3>
+            <p class="date">Diciembre/2024 - Actual</p>
+            <p class="stack"><span class="label">Front-End:</span> <span class="accent">React, JSP, UI, UX y RUP</span></p>
+            <p class="stack"><span class="label">Back-End, datos y despliegue:</span> <span class="accent">Spring Boot, MySQL, MariaDB, PostgreSQL, JasperReports, OAuth/Gateway, GeoServer, Airflow, Docker Compose y VMs</span></p>
+            <p class="desc"><span class="label">Descripción:</span> Desarrollo en un ecosistema de aplicaciones medioambientales conectadas por portal de autenticación, gateway y dominio propio. Trabajo en geovisor con mapas, tablas, capas configurables en GeoServer, capas animadas con DAGs de Airflow y despliegues multi-contenedor en servidores/maquinas virtuales.</p>
+          </article>
+
+          <article class="job">
+            <h3>Tranxfer - Developer JavaScript y Java (Barcelona)</h3>
+            <p class="date">Septiembre/2023 - Octubre/2024</p>
+            <p class="stack"><span class="label">Back-End:</span> <span class="accent">Java con Spring Boot</span></p>
+            <p class="stack"><span class="label">Front-End:</span> <span class="accent">Angular, TypeScript e Ionic</span></p>
+            <p class="desc"><span class="label">Descripción:</span> Soporte y desarrollo de una aplicación para envío seguro de archivos encriptados, cuidando flujo de usuario, mantenimiento y evolutivos.</p>
+          </article>
+
+          <article class="job">
+            <h3>Technip Energies - Developer JavaScript (Cornella)</h3>
+            <p class="date">Junio/2022 - Septiembre/2023</p>
+            <p class="stack"><span class="label">Back-End:</span> <span class="accent">Node.js, Postman y MySQL</span></p>
+            <p class="stack"><span class="label">Front-End:</span> <span class="accent">React, TypeScript, HTML, CSS y Tailwind</span></p>
+            <p class="desc"><span class="label">Descripción:</span> Creación de herramientas internas para agilizar procesos de empresa, documentando y presentando su uso en inglés y español.</p>
+          </article>
+
+          <article class="job">
+            <h3>WebHelp - Google Cloud Platform Support (Barcelona)</h3>
+            <p class="date">2021 (Febrero/Mayo)</p>
+            <p class="stack"><span class="label">Tecnologias:</span> <span class="accent">JavaScript, PostgreSQL, Terraform, YAML y Vim</span></p>
+            <p class="desc"><span class="label">Descripción:</span> Resolución de incidencias y soporte técnico sobre servicios de Google Cloud Platform.</p>
+          </article>
+        </section>
+
+        <div class="rule"></div>
+        <section class="section">
+          <h2 class="main-title">Proyectos personales</h2>
+          <div class="projects">
+            <article class="project">
+              <h3>Pokemon Project</h3>
+              <p><span class="blue">Next.js, TypeScript, Prisma y PostgreSQL.</span> Pokédex interactiva, herramientas para equipos, API interna/OpenAPI e ingesta desde PokeAPI, Pokemon Showdown y Smogon. <a href="https://pokemon-project.vercel.app">pokemon-project.vercel.app</a></p>
+            </article>
+            <article class="project">
+              <h3>Portfolio Next.js</h3>
+              <p><span class="blue">Next.js, Tailwind y Figma.</span> Portfolio personal con proyectos, contacto y despliegue en Vercel, pensado como punto de entrada para recruiters y enlaces públicos.</p>
+            </article>
+          </div>
+        </section>
+
+        <div class="rule"></div>
+        <section class="section">
+          <h2 class="main-title">Formación</h2>
+          <div class="education">
+            <h3>IES Esteve Terrades i Illa</h3>
+            <p><strong>2016-2020</strong> - Grado superior de Desarrollo de Aplicaciones Multiplataforma</p>
+          </div>
+          <div class="education">
+            <h3>Fundación Esplai</h3>
+            <p><strong>2020</strong> - Web Apps en entorno .NET, JavaScript, HTML/CSS, C#, SQL Server y Entity Framework Core</p>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
