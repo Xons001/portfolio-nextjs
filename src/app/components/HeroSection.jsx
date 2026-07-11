@@ -50,8 +50,8 @@ const HeroSection = () => {
               {t.hero.projects}
             </a>
             <a
-              href="/files/CV-Sean-2026-esp.pdf"
-              download="CV-Sean-2026-esp.pdf"
+              href={t.hero.cvHref}
+              download={t.hero.cvFile}
               className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 font-semibold text-slate-200 transition hover:border-white hover:bg-white/5"
             >
               {t.hero.cv}

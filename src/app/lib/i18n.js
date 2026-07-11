@@ -16,6 +16,8 @@ export const translations = {
       contact: "Contact me",
       projects: "View projects",
       cv: "Download CV",
+      cvHref: "/files/CV-Sean-2026-en.pdf",
+      cvFile: "CV-Sean-2026-en.pdf",
       stats: [
         ["Focus", "Frontend + full stack"],
         ["Stack", "React, Angular, Java"],
@@ -129,7 +131,7 @@ export const translations = {
             "Cloud-ready architecture with migrations, ingest scripts and environment strategy",
           ],
           gitUrl: "https://github.com/Xons001/pokemon-project",
-          previewUrl: "https://pokemon-project.vercel.app",
+          previewUrl: "https://pokemon-project-six-gamma.vercel.app",
           featured: true,
         },
         {
@@ -227,6 +229,8 @@ export const translations = {
       contact: "Contactar",
       projects: "Ver proyectos",
       cv: "Descargar CV",
+      cvHref: "/files/CV-Sean-2026-esp.pdf",
+      cvFile: "CV-Sean-2026-esp.pdf",
       stats: [
         ["Foco", "Frontend + full stack"],
         ["Stack", "React, Angular, Java"],
@@ -340,7 +344,7 @@ export const translations = {
             "Arquitectura preparada para cloud con migraciones, scripts de ingesta y estrategia de entornos",
           ],
           gitUrl: "https://github.com/Xons001/pokemon-project",
-          previewUrl: "https://pokemon-project.vercel.app",
+          previewUrl: "https://pokemon-project-six-gamma.vercel.app",
           featured: true,
         },
         {
